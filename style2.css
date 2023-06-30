@@ -6,29 +6,29 @@ body{
   width: 100%;
 }
 
-@media screen and (max-width: 1200px){
-	p{
-		font_size: 32px;
-	}
-}
-
-@media screen and (max-width: 992px){
+@media all and (max-width: 1200px){
 	p{
 		font_size: 28px;
 	}
 }
-@media screen and (max-width: 768px){
+
+@media all and (max-width: 992px){
 	p{
 		font_size: 24px;
 	}
 }
-@media screen and (max-width: 576px){
+@media all and (max-width: 768px){
 	p{
 		font_size: 20px;
 	}
 }
-@media screen and (max-width: 375px){
+@media all and (max-width: 576px){
 	p{
 		font_size: 16px;
+	}
+}
+@media all and (max-width: 375px){
+	p{
+		font_size: 12px;
 	}
 }
