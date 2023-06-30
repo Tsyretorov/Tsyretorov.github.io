@@ -1,14 +1,34 @@
 body{
 	margin-left: 200px;
 	margin-right: 200px;
-	font-size: 20px;
 }
 .wrapper {
   width: 100%;
 }
 
-@media screen and (max-width: 1280px) { div.contentblock {width: 1200px;} }
+@media screen and (max-width: 1200px){
+	h1{
+		font_size: 32px;
+	}
+}
 
-@media screen and (max-width: 1140px) { div.contentblock {width: 1024px;} }
-
-@media screen and (max-width: 992px) { div.contentblock {width: 970px;} }
+@media screen and (max-width: 992px){
+	h1{
+		font_size: 28px;
+	}
+}
+@media screen and (max-width: 768px){
+	h1{
+		font_size: 24px;
+	}
+}
+@media screen and (max-width: 576px){
+	h1{
+		font_size: 20px;
+	}
+}
+@media screen and (max-width: 375px){
+	h1{
+		font_size: 16px;
+	}
+}
