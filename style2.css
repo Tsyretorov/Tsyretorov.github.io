@@ -7,23 +7,23 @@ body{
 }
 
 @media screen and (max-width: 1200px){
-	div{
+	p1{
 		font_size: 32px;
 	}
 }
 
 @media screen and (max-width: 992px){
-	div{
+	p1{
 		font_size: 28px;
 	}
 }
 @media screen and (max-width: 768px){
-	div{
+	p1{
 		font_size: 24px;
 	}
 }
 @media screen and (max-width: 576px){
-	div{
+	p1{
 		font_size: 20px;
 	}
 }
