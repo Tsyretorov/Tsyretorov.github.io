@@ -2,9 +2,7 @@ body{
 	margin-left: 200px;
 	margin-right: 200px;
 }
-.wrapper {
-  width: 100%;
-}
+white-space: nowrap;
 
 @media screen and (max-width: 1200px){
 	h1{
