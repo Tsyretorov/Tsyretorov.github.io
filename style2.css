@@ -1,34 +1,32 @@
-body{
-	margin-left: 200px;
-	margin-right: 200px;
-}
 .wrapper {
   width: 100%;
 }
 
 @media all and (max-width: 1200px){
-	p{
+	body{
+		margin-left: 200px;
+		margin-right: 200px;
 		font_size: 28px;
 	}
 }
 
 @media all and (max-width: 992px){
-	p{
+	body{
 		font_size: 24px;
 	}
 }
 @media all and (max-width: 768px){
-	p{
+	body{
 		font_size: 20px;
 	}
 }
 @media all and (max-width: 576px){
-	p{
+	body{
 		font_size: 16px;
 	}
 }
 @media all and (max-width: 375px){
-	p{
+	body{
 		font_size: 12px;
 	}
 }
