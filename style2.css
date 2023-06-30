@@ -7,28 +7,28 @@ body{
 }
 
 @media screen and (max-width: 1200px){
-	p1{
+	p{
 		font_size: 32px;
 	}
 }
 
 @media screen and (max-width: 992px){
-	p1{
+	p{
 		font_size: 28px;
 	}
 }
 @media screen and (max-width: 768px){
-	p1{
+	p{
 		font_size: 24px;
 	}
 }
 @media screen and (max-width: 576px){
-	p1{
+	p{
 		font_size: 20px;
 	}
 }
 @media screen and (max-width: 375px){
-	div{
+	p{
 		font_size: 16px;
 	}
 }
