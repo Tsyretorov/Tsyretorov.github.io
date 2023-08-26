@@ -371,7 +371,7 @@ v
 
 .department_cell {
 	display: table-cell;
-	vertical-align: middle;
+	vertical-align: top;
 	height: 100%;
 	margin-left: 0;
 	margin-right: 0;
