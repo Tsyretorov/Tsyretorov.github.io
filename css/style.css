@@ -662,7 +662,7 @@ button[aria-expanded="true"]{
 }}
 
 .section1 {
-	height: 768px;
+	height: 100vh;
 	width: 100%;
 	background: url(../images/title_photo.jpg) no-repeat center center;
 	background-size: cover;
@@ -683,7 +683,7 @@ button[aria-expanded="true"]{
 }
 
 .section1_cover_carrier {
-	height: 768px;
+	height: 100vh;
 	width: 100%;
 	background-size: cover;
 	-webkit-background-size: cover;
@@ -716,7 +716,7 @@ button[aria-expanded="true"]{
 }
 
 .cover_filter {
-	height: 768px;
+	height: 100vh;
 	width: 100%;
 	position: relative;
 	top: 0;
@@ -775,7 +775,7 @@ button[aria-expanded="true"]{
 }
 
 .section1_cover_wrapper {
-	height: 768px;
+	height: 100vh;
 	display: table-cell;
 	width: 1200px;
 }
