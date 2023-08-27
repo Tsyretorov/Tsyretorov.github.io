@@ -702,6 +702,7 @@ button[aria-expanded="true"]{
 	z-index: 3;
 	color: #fff;
 	text-align: center;
+	padding: 0px 50px;
 }
 
 .b1ackraound_black1 {
