@@ -1472,24 +1472,24 @@ button[aria-expanded="true"]{
 
 .section11 {
 	background-image: -moz-linear-gradient(rgb(204, 204, 204), rgb(119, 119, 119));
-	height: 780px;
+	height: 640px;
 	overflow: hidden;
 }
 
 .section11_back_gradient11 {
-	height: 780px;
+	height: 640px;
 	background-image: -webkit-linear-gradient(rgba(18, 35, 97, 0.5), rgba(18, 35, 97, 0.5));
 }
 
 .section11_filter {
-	height: 780px;
+	height: 640px;
 	width: 100%;
 	position: absolute;
 	left: 0;
 }
 
 .section11_wrapper {
-	height: 780px;
+	height: 640px;
 	display: table-cell;
 	width: 1200px;
 }
