@@ -30,14 +30,6 @@
 					<span style="background-color:#fff;"></span>
 					<span style="background-color:#fff;"></span>
 				</button>
-				<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-				<script src="js/menu.js"></script>
-				<script type="text/javascript">
-					document.querySelector('.header_menu_burger').addEventListener('click', function() {
-						this.classList.toggle('header_menu_burger_opened');
-						document.querySelector('header_main_container,.header_main_container').classList.toggle('active')
-					})
-				</script>
 			</div>
 		</div>
 		<div class="header_main_container header_mobile_second">
@@ -545,4 +537,29 @@
 		</div>
 	</section>
 </body>
+<script type="text/javascript">
+	// Определяем элемент меню
+	const menu1 = document.querySelector(".header_menu_burger");
+	const menu = document.querySelector(".header_main_container");
+
+	// Определяем обработчик события клика
+	document.addEventListener("click", function(event) {
+
+	  // Проверяем, был ли клик вне меню
+	  if (!menu.contains(event.target)) {
+
+	    // Закрываем меню
+	    menu1.classList.remove("header_menu_burger_opened");
+	    menu.classList.remove("active");
+	  }
+
+	  // Проверяем, был ли клик по крестику
+	  if (event.target.classList.contains("header_menu_burger")) {
+
+	    // Открываем меню
+	    menu1.classList.toggle('header_menu_burger_opened');
+	    menu.classList.toggle("active");
+	  }
+	});
+</script>
 </html>
