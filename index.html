@@ -540,24 +540,23 @@
 	// Определяем элемент меню
 	const menu1 = document.querySelector(".header_menu_burger");
 	const menu = document.querySelector(".header_main_container");
-
-	// Определяем обработчик события клика
-	document.addEventListener("click", function(event) {
-
+	
+	// Определяем обработчик события touchstart
+	document.addEventListener("touchstart", function(event) {
+	
 	  // Проверяем, был ли клик вне меню
 	  if (!menu.contains(event.target)) {
-
+	
 	    // Закрываем меню
 	    menu1.classList.remove("header_menu_burger_opened");
 	    menu.classList.remove("active");
 	  }
-
+	
 	  // Проверяем, был ли клик по крестику
 	  if (event.target.classList.contains("header_menu_burger")) {
-
-	    // Открываем меню
-	    menu1.classList.toggle('header_menu_burger_opened');
-	    menu.classList.toggle("active");
+	
+	    // Добавляем класс header_menu_burger_opened к header_menu_burger
+	    event.target.classList.add("header_menu_burger_opened");
 	  }
 	});
 </script>
