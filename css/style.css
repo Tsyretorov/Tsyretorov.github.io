@@ -677,8 +677,9 @@ button[aria-expanded="true"]{
 	width: 100%;
 	background: url(../images/title_photo.jpg) no-repeat center center;
 	background-size: cover;
-	position: relative;
+	position: fixed;
 	overflow: hidden;
+	z-index: 5;
 }
 
 .section1:after{
@@ -704,7 +705,7 @@ button[aria-expanded="true"]{
 	background-position: center center;
 	text-align: center;
 	vertical-align: middle;
-	position: relative;
+	position: fixed;
 	background-attachment: fixed;
 }
 
