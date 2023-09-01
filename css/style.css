@@ -690,7 +690,6 @@ button[aria-expanded="true"]{
 	bottom: 0;
 	background: #000;
 	opacity: 0.7;
-	background-attachment: fixed;
 }
 
 .section1_cover_carrier {
@@ -705,7 +704,6 @@ button[aria-expanded="true"]{
 	text-align: center;
 	vertical-align: middle;
 	position: relative;
-	background-attachment: fixed;
 }
 
 .wrapper_title {
