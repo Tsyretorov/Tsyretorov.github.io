@@ -537,29 +537,27 @@
 		</div>
 	</section>
 </body>
-<script type="text/javascript">
-	// Определяем элемент меню
-	const menu1 = document.querySelector(".header_menu_burger");
-	const menu = document.querySelector(".header_main_container");
-	
-	// Определяем обработчик события touchstart
-	document.addEventListener("click", function(event) {
-	
-	  // Проверяем, был ли клик вне меню
-	  if (!menu.contains(event.target)) {
-	
-	    // Закрываем меню
-	    menu1.classList.remove("header_menu_burger_opened");
-	    menu.classList.remove("active");
-	  }
-	
-	  // Проверяем, был ли клик по крестику
-	  if (event.target.classList.contains("header_menu_burger")) {
-	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+	$(function() {
+	  var menu1 = $(".header_menu_burger");
+	  var menu = $(".header_main_container");
+
+	  // Обработка клика по крестику
+	  menu1.click(function() {
 	    // Добавляем класс header_menu_burger_opened к header_menu_burger
-	    event.target.classList.toggle("header_menu_burger_opened");
-	    menu.classList.toggle("active");
-	  }
+	    menu1.toggleClass("header_menu_burger_opened");
+	    menu.toggleClass("active");
+	  });
+
+	  // Обработка клика вне меню
+	  $(document).click(function(e) {
+	    if (e.target.closest(".header_menu_burger") === null) {
+	      // Закрываем меню
+	      menu1.removeClass("header_menu_burger_opened");
+	      menu.removeClass("active");
+	    }
+	  });
 	});
 </script>
 </html>
