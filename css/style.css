@@ -706,11 +706,6 @@ button[aria-expanded="true"]{
 	position: relative;
 }
 
-.wrapper_title {
-	padding-top: 42px;
-	padding-bottom: 42px;
-}
-
 .content1 {
 	position: relative;
 	color: white;
