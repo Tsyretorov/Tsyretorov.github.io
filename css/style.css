@@ -443,7 +443,7 @@ header {
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
-	width: 100%;
+	width: 20%;
 }
 
 .header_center_side {
@@ -646,6 +646,7 @@ button[aria-expanded="true"]{
 	display: block;
 	text-align: center;
 	float: none;
+	width: 100%;
 }}
 
 @media screen and (max-width: 979px) {
