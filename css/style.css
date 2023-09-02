@@ -201,6 +201,12 @@ br.section2_br5 {
 	display: none;
 }}
 
+@media screen and (min-width: 442px) {
+br.section3_br1 {
+	display: none;
+}}
+
+
 /* br_setion3_br */
 
 h2 {
@@ -282,32 +288,20 @@ v
 	max-width: 620px;
 }}
 
-.margin_auto {
-	margin-left: auto;
-	margin-right: auto;
+.mx_width3 {
+	max-width: 360px;
 }
 
-.valign_top {
-	vertical-align: top;
-}
-
-.valign_middle {
-	vertical-align: middle;
-}
-
-.margin_bottom41 {
-	margin-bottom: 105px;
-}
-
-@media screen and (max-width: 960px){
-.margin_bottom41 {
-	margin-bottom: 45px;
+@media screen and (max-width: 1200px) {
+.mx_width3 {
+  max-width: 300px;
 }}
 
-@media screen and (max-width: 640px){
-.margin_bottom41 {
-	margin-bottom: 0px;
+@media screen and (max-width: 480px) {
+.mx_width3 {
+	max-width: 100%;
 }}
+
 
 .section_crate_table {
 	max-width: 45%;
@@ -371,6 +365,36 @@ v
 	height: 100%;
 	margin-left: 0;
 	margin-right: 0;
+}
+
+.margin_auto {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.valign_top {
+	vertical-align: top;
+}
+
+.valign_middle {
+	vertical-align: middle;
+}
+
+.margin_0_auto {
+	margin: 0 auto;
+}
+
+.align_center {
+	text-align: center;
+}
+
+.position_absolute {
+	position: absolute;
+	max-width: 100%;
+}
+
+.li_style_no_marker {
+	list-style-type: none;
 }
 
 header {
@@ -805,14 +829,48 @@ button[aria-expanded="true"]{
 	color: #fff;
 }
 
+.title_font_size1 {
+	font-size: 16px;
+}
+
+@media screen and (max-width: 640px){
+.title_font_size1 {
+	font-size: 12px;
+}}
+
+.title_font_size2 {
+	font-size: 72px;
+	line-height: 1.17;
+}
+
+@media screen and (max-width: 1200px){
+.title_font_size2 {
+	font-size: 68px;
+}}
+
+@media screen and (max-width: 640px){
+.title_font_size2 {
+	font-size: 44px;
+}}
+
+@media screen and (max-width: 1200px) {
+.title_font-size3 {
+	font-size: 22px;
+	line-height: 1.5;
+}}
+
+@media screen and (max-width: 640px){
+.title_font-size3 {
+	padding-right: 10px;
+	padding-left: 10px;
+	font-size: 14px;
+	line-height: 20px;
+}}
+
 .section2 {
 	padding-top:180px;
 	padding-bottom:180px;
 	background-color:#f0f0f0;
-}
-
-.align_center {
-	text-align: center;
 }
 
 .section2_text {
@@ -905,10 +963,6 @@ button[aria-expanded="true"]{
 	margin-bottom: 14px;
 }
 
-.li_style_no_marker {
-	list-style-type: none;
-}
-
 .padding-left_section3{
 	padding-left: 25px;
 }
@@ -918,44 +972,6 @@ button[aria-expanded="true"]{
 	padding-bottom: 150px;
 	background-color: #efefef;
 }
-
-.title_font_size1 {
-	font-size: 16px;
-}
-
-@media screen and (max-width: 640px){
-.title_font_size1 {
-	font-size: 12px;
-}}
-
-.title_font_size2 {
-	font-size: 72px;
-	line-height: 1.17;
-}
-
-@media screen and (max-width: 1200px){
-.title_font_size2 {
-	font-size: 68px;
-}}
-
-@media screen and (max-width: 640px){
-.title_font_size2 {
-	font-size: 44px;
-}}
-
-@media screen and (max-width: 1200px) {
-.title_font-size3 {
-	font-size: 22px;
-	line-height: 1.5;
-}}
-
-@media screen and (max-width: 640px){
-.title_font-size3 {
-	padding-right: 10px;
-	padding-left: 10px;
-	font-size: 14px;
-	line-height: 20px;
-}}
 
 .text3_center {
 	max-width: 700px;
@@ -973,10 +989,25 @@ button[aria-expanded="true"]{
 	padding-left: 50px;
 }}
 
-.text4_bottom {
+.section4_text_bottom {
 	margin-top: 0;
 	margin-bottom: 25px;
 }
+
+.section4_margin_bottom {
+	margin-bottom: 105px;
+}
+
+@media screen and (max-width: 960px){
+.section4_margin_bottom {
+	margin-bottom: 45px;
+}}
+
+@media screen and (max-width: 640px){
+.section4_margin_bottom {
+	margin-bottom: 0px;
+}}
+
 
 .section4_margin_top {
 	margin-top: 90px;
@@ -1343,12 +1374,6 @@ button[aria-expanded="true"]{
 	-webkit-border-radius: 50%;
 }
 
-.mask_photo {
-  width: 200px;
-  height: 200px;
-  position: relative;
-}
-
 .photo_person {
 	object-fit: cover;
 	height: 100%;
@@ -1356,20 +1381,6 @@ button[aria-expanded="true"]{
 	left: 0;
 	width: 100%;
 }
-
-.mx_width3 {
-	max-width: 360px;
-}
-
-@media screen and (max-width: 1200px) {
-.mx_width3 {
-  max-width: 300px;
-}}
-
-@media screen and (max-width: 480px) {
-.mx_width3 {
-	max-width: 100%;
-}}
 
 @media screen and (max-width: 960px) {
 .section9_mobstyle {
@@ -1522,11 +1533,6 @@ button[aria-expanded="true"]{
 .square_white {
   padding: 30px 20px 35px;
 }}
-
-.position_absolute {
-	position: absolute;
-	max-width: 100%;
-}
 
 .section11_bottom_margin50 {
   margin-bottom: 50px;
