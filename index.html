@@ -490,9 +490,9 @@
 		</div>
 	</section>
 	<section class="section11">
-	<div class="section11_filter section11_back_gradient11"></div>
-		<div class="container position_absolute">
-			<div class="margin_0_auto mx_width7">
+	<div class="section11_filter section11_back_gradient11">
+		<div class="section11_align_center section11_possition_absolute">
+			<div class="mx_width7 margin_0_auto">
 				<div class="section11_wrapper valign_middle">
 					<div class="square_white align_center">
 						<div class="section11_bottom_margin50 font_601 margin_auto" style="font-size:22px;font-weight:400;">Our contacts</div>
@@ -524,6 +524,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 	</section>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -539,14 +540,12 @@
 	    menu.toggleClass("active");
 	  });
 
-	  // Обработка клика вне меню
-	  $(document).click(function(e) {
-	    if (e.target.closest(".header_menu_burger") === null) {
-	      // Закрываем меню
-	      menu1.removeClass("header_menu_burger_opened");
-	      menu.removeClass("active");
-	    }
-	  });
-	});
+	$(document).click(function (e) {
+	    if (!menu1.is(e.target) && !menu.is(e.target) && menu.has(e.target).length === 0) {
+	        menu1.removeClass("header_menu_burger_opened")
+	        menu.removeClass("active");
+		};
+	})
+})
 </script>
 </html>
