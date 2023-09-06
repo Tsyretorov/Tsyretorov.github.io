@@ -534,13 +534,13 @@
 	  var menu = $(".header_main_container");
 
 	  // Обработка клика по крестику
-	  menu1.click(function() {
+	  menu1.mouseup(function() {
 	    // Добавляем класс header_menu_burger_opened к header_menu_burger
 	    menu1.toggleClass("header_menu_burger_opened");
 	    menu.toggleClass("active");
 	  });
 
-	$(document).click(function (e) {
+	$(document).mouseup(function (e) {
 	    if (!menu1.is(e.target) && !menu.is(e.target) && menu.has(e.target).length === 0) {
 	        menu1.removeClass("header_menu_burger_opened")
 	        menu.removeClass("active");
