@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8">
-	<title>OpenNom</title>
+	<title>OpenNom AI</title>
 </head>
 <body>
 	<header>
@@ -68,7 +68,7 @@
 						<div class="uptitle1 content1 title_font_size1 font_600 text_title title_paddings">Empowering Minds, Transforming Communities</div>
 						<h1 class="uptitle2 font_600 title_font_size2 letter_space title_paddings">OpenNom AI:</h1>
 						<h2 class="uptitle3 font_300 title_font-size3 text3_center title_paddings">A free learning platform to bridge the global literacy divide<br class="mobile1">
-																								and create a world where knowledge knows <strong><br class="mobile2">no borders.</strong></h2>
+																								and create a world where knowledge knows <strong><br class="mobile2"><br class="mobile3">no borders.</strong></h2>
 					</div>
 				</div>
 			</div>
@@ -540,12 +540,12 @@
 	    menu.toggleClass("active");
 	  });
 
-	$(document).mouseup(function (e) {
-	    if (!menu1.is(e.target) && !menu.is(e.target) && menu.has(e.target).length === 0) {
-	        menu1.removeClass("header_menu_burger_opened")
-	        menu.removeClass("active");
-		};
+	$(document).click(function (e) {
+    if ($(e.target).closest(".header_menu_burger, .header_main_container").length) return;	//при клике на эти блоки не скрывать .display_settings_content
+      menu1.removeClass("header_menu_burger_opened")
+	  menu.removeClass("active");
+    e.stopPropagation();
+		});
 	})
-})
 </script>
 </html>
