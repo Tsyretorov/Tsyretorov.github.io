@@ -7,11 +7,11 @@ var fg = new Image();
 var pipeUp = new Image();
 var pipeBottom = new Image();
 
-bird.src = "file:///home/oem/JS/js/img/bird.png";
-bg.src = "file:///home/oem/JS/js/img/bg.png";
-fg.src = "file:///home/oem/JS/js/img/fg.png";
-pipeUp.src = "file:///home/oem/JS/js/img/pipeUp.png";
-pipeBottom.src = "file:///home/oem/JS/js/img/pipeBottom.png";
+bird.src = "img/bird.png";
+bg.src = "img/bg.png";
+fg.src = "img/fg.png";
+pipeUp.src = "img/pipeUp.png";
+pipeBottom.src = "img/pipeBottom.png";
 
 console.log("POP")
 
