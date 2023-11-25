@@ -7,11 +7,11 @@ var fg = new Image();
 var pipeUp = new Image();
 var pipeBottom = new Image();
 
-bird.src = "img/bird.png";
-bg.src = "img/bg.png";
-fg.src = "img/fg.png";
-pipeUp.src = "img/pipeUp.png";
-pipeBottom.src = "img/pipeBottom.png";
+bird.src = "js/img/bird.png";
+bg.src = "js/img/bg.png";
+fg.src = "js/img/fg.png";
+pipeUp.src = "js/img/pipeUp.png";
+pipeBottom.src = "js/img/pipeBottom.png";
 
 console.log("POP")
 
@@ -19,8 +19,8 @@ console.log("POP")
 var fly = new Audio();
 var score_audio = new Audio();
 
-fly.src = "audio/fly.mp3";
-score_audio.src = "audio/score.mp3";
+fly.src = "js/audio/fly.mp3";
+score_audio.src = "js/audio/score.mp3";
 
 var gap = 90;
 
