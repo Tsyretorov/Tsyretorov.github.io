@@ -2,55 +2,18 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Аналитика данных</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Аналитика данных</h1>
-        <div class="filters">
-            <label for="product">Продукт:</label>
-            <select id="product">
-                <option value="">Все</option>
-                <option value="Продукт 1">Продукт 1</option>
-                <option value="Продукт 2">Продукт 2</option>
-                <option value="Продукт 3">Продукт 3</option>
-            </select>
-            <label for="region">Регион:</label>
-            <select id="region">
-                <option value="">Все</option>
-                <option value="Регион 1">Регион 1</option>
-                <option value="Регион 2">Регион 2</option>
-                <option value="Регион 3">Регион 3</option>
-            </select>
-        </div>
-        <div class="charts">
-            <canvas id="chart-revenue" width="400" height="400"></canvas>
-            <canvas id="chart-profit" width="400" height="400"></canvas>
-        </div>
-        <div class="table">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Order ID</th>
-                        <th>Приоритет</th>
-                        <th>Количество</th>
-                        <th>Выручка</th>
-                        <th>Метод доставки</th>
-                        <th>Прибыль</th>
-                        <th>Покупатель</th>
-                        <th>Регион</th>
-                        <th>Продукт</th>
-                        <th>Упаковка продукта</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    </tbody>
-            </table>
-        </div>
+    <h1>Анализ прибыли по регионам</h1>
+    <div>
+        <select id="metric">
+            <option value="profit">Прибыль</option>
+            <option value="cost">Расходы</option>
+        </select>
     </div>
+    <canvas id="chart" width="600" height="400"></canvas>
     <script src="js.js"></script>
 </body>
 </html>

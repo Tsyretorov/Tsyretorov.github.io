@@ -1,44 +1,22 @@
 body {
     font-family: sans-serif;
-    margin: 20px;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
+    padding: 20px;
 }
 
-h1 {
-    text-align: center;
-}
-
-.filters {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.filters select {
-    padding: 5px;
-    font-size: 16px;
-}
-
-.charts {
-    display: flex;
-    justify-content: space-between;
-}
-
-.table {
-    margin-top: 20px;
-    border-collapse: collapse;
+.chart-container {
     width: 100%;
+    height: 400px;
 }
 
-th, td {
-    padding: 5px;
-    border: 1px solid #ddd;
+.controls {
+    margin-top: 20px;
 }
 
-th {
-    text-align: center;
+.controls label {
+    margin-right: 10px;
 }

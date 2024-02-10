@@ -20,10 +20,35 @@ data = pd.read_csv(
     "./data/data.csv"
 )
 
-print(data.head(n=2))
-print(data.columns)
-p = input("Хотите список покупателей")
 
-if p.lower() == "да":
-	print(data["Метод доставки"])
 
+list_col = ['Order_ID', 'Приоритет', 'Количество', 'Выручка', 'Метод доставки',
+			'Прибыль', 'Покупатель', 'Регион', 'Продукт', 'Упаковка продукта']
+
+
+x = data["Регион"]
+y = data["Прибыль"]
+
+plt.bar(x, y, label='Величина прибыли') #Параметр label позволяет задать название величины для легенды
+plt.xlabel('Месяц года')
+plt.ylabel('Прибыль, в млн руб.')
+plt.title('Пример столбчатой диаграммы')
+plt.legend()
+plt.show()
+
+plt.rcdefaults()
+fig, ax = plt.subplots()
+
+
+people = data["Приоритет"]
+y_pos = np.arange(len(people))
+performance = 3 + 10 * np.random.rand(len(people))
+error = np.random.rand(len(people))
+
+ax.barh(y_pos, performance, xerr=error, align='center')
+ax.set_yticks(y_pos, labels=people)
+ax.invert_yaxis()  # labels read top-to-bottom
+ax.set_xlabel('Performance')
+ax.set_title('How fast do you want to go today?')
+
+plt.show()
