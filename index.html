@@ -2,18 +2,66 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Аналитика данных</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exchange Nha Trang</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Анализ прибыли по регионам</h1>
-    <div>
-        <select id="metric">
-            <option value="profit">Прибыль</option>
-            <option value="cost">Расходы</option>
-        </select>
-    </div>
-    <canvas id="chart" width="600" height="400"></canvas>
-    <script src="js.js"></script>
+    <header>
+        <div class="buttons">
+            <div class="button">
+                <p>Василий</p>
+            </div>
+            <div class="button">
+                <a href="#">Ваш кабинет</a>
+            </div>
+        </div>
+        <div class="container">
+            <h1>Exchange Nha Trang</h1>
+            <div class="user-info">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Наш курс обмена</h2>
+            <div class="exchange-rates">
+                <div class="exchange-rate">
+                    <p>RUB (карта)</p>
+                    <input type="number" placeholder="Введите сумму">
+                </div>
+                <div class="exchange-rate">
+                    <p>VND (нал)</p>
+                    <input type="number" placeholder="Введите сумму">
+                </div>
+            </div>
+
+            <div class="delivery-info">
+                <h3>Дата и время доставки:</h3>
+                <p>Сегодня, 15:00</p>
+
+                <h3>Адрес доставки:</h3>
+                <p>Введите адрес, скопировав его с Google Maps</p>
+                <textarea placeholder="Введите адрес"></textarea>
+
+                <p>Или укажите точку на карте:</p>
+                <div id="map"></div>
+
+                <p>Комментарии к адресу:</p>
+                <textarea placeholder="Введите комментарии"></textarea>
+
+                <button type="submit">Готово!</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Exchange Nha Trang</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
