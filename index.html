@@ -5,64 +5,296 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exchange Nha Trang</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
     <header>
-        <div class="buttons">
-            <div class="button">
-                <p>Василий</p>
+        <div class="lines_up">
+            <div class="line_up">
+                <a href="https://t.me/llponill">Василий</a>
             </div>
-            <div class="button">
-                <a href="#">Ваш кабинет</a>
-            </div>
-        </div>
-        <div class="container">
-            <h1>Exchange Nha Trang</h1>
-            <div class="user-info">
+            <div class="line_up special_padding">
+                <a href="https://poni03.github.io/cabinet">Ваш кабинет</a>
             </div>
         </div>
     </header>
 
-    <main>
-        <div class="container">
-            <h2>Наш курс обмена</h2>
-            <div class="exchange-rates">
-                <div class="exchange-rate">
-                    <p>RUB (карта)</p>
-                    <input type="number" placeholder="Введите сумму">
-                </div>
-                <div class="exchange-rate">
-                    <p>VND (нал)</p>
-                    <input type="number" placeholder="Введите сумму">
-                </div>
+    <div class="container">
+    <div class="container-pop-up">
+        <button id="open_curs" class="openModalButton" data-modal-id="modal1">Наш курс обмена</button>
+        <button id="open_jewelry_curs" class="openModalButton" data-modal-id="modal2">Курс в ювелирных салонах</button>
+        <button id="open_how_change" class="openModalButton" data-modal-id="modal3">Как происходит обмен</button>
+    </div>
+    <div class="container-pop-up">
+      <button id="open_evisa" class="openModalButton" data-modal-id="modal4">E-VISA и помощь с покупками</button>
+      <button id="open_refferal" class="openModalButton" data-modal-id="modal5">Реферальная программа</button>
+    </div>
+
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close-button">&times;</span>
             </div>
+            <div class="modal-form">
+                <form action="#">
+                    <p>
+                        Наш курс обмена
+                    <p>
+                        Курс на 29.05.2024
+                    </p>
+                        ———————————————<br>
+                        🇷🇺 9.400 ₽ = 🇺🇸 100 $<br>
+                        🇷🇺 10.000 ₽ = 🇻🇳 2.750.000<br>
+                        🇺🇸 100 $ = 🇻🇳 2.525.000<br>
+                        💸 100 usdt = 🇻🇳 2.530.000<br>
 
-            <div class="delivery-info">
-                <h3>Дата и время доставки:</h3>
-                <p>Сегодня, 15:00</p>
-
-                <h3>Адрес доставки:</h3>
-                <p>Введите адрес, скопировав его с Google Maps</p>
-                <textarea placeholder="Введите адрес"></textarea>
-
-                <p>Или укажите точку на карте:</p>
-                <div id="map"></div>
-
-                <p>Комментарии к адресу:</p>
-                <textarea placeholder="Введите комментарии"></textarea>
-
-                <button type="submit">Готово!</button>
+                        USD+2% —> USDT 💸<br>
+                        USDT+2% —> USD 🇺🇸<br>
+                        ———————————————<br>
+                        *курс на суммы меньше 10.000₽ менее выгодный
+                    </p>
+                </form>
             </div>
         </div>
-    </main>
+    </div>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Exchange Nha Trang</p>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-form">
+                <form action="#">
+                    <p>
+                        КУРСЫ В ЮВЕЛИРНЫХ<br>
+                        04.06.24 на 09:00<br>
+
+                        НЯЧАНГ:<br>
+                        Рынок Соммой:
+                        100$ = 2.560.000<br>
+                        Рынок Чодам:
+                        100$ = 2.572.000<br>
+
+                        ДАНАНГ:<br>
+                        Мост дракона: 
+                        100$ = 2.572.000<br>
+                        Рынок Чо Ан (Thai Hoa II):
+                        100$ = 2.560.000<br>
+                    </p>
+                </form>
+            </div>
         </div>
-    </footer>
+    </div>
 
-    <script src="script.js"></script>
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-form">
+                <form action="#">
+                    Процесс обмена проходит максимально удобно и выгодно для вас 🤝🏼
+                     
+                    1⃣ Указываете необходимую сумму для обмена и необходимые детали 
+                    2⃣ Бот рассчитывает для вас итоговую сумму по актуальному курсу 
+                    3⃣ Курьер доставляет в назначенное время и в удобное для Вас место
+                    4⃣ Производим обмен при личной всрече и завершаем действия в Боте 👌
+
+                    *Так же обмен можно произвести онлайн на счет или через банкомат 📮
+
+                     
+                    Остаёмся на связи, если вам снова понадобится наша помощь 🤙🏼 
+                     
+                    Есть вопросы? Задайте их нам напрямую ⬇️
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-form">
+                <form action="#">
+                    <p>
+                        Поможем вам оформить и оплатить визу всего за несколько шагов!
+                         
+                        Poni, для вас специальное предложение – стоимость услуги 36$ 45$ 
+                         
+                        ✅ Оплата любой валютой по курсу обмена
+                         
+                        *мы можем помочь с оформлением и других виз, уточняйте подробности у менеджера 
+                         
+                        Готовы? ⬇️
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal5" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-form">
+                <form action="#">
+                    <p>
+                        Poni, ваш бонусный баланс: 0 VND
+
+                        Приглашённых друзей: 0
+
+                        ⭐️ Пригласите друга – и мы начислим на ваш счёт 70.000 VND, когда друг единоразово произведёт обмен на сумму от 
+                        5.000.000 VND.
+
+                        * Бонусы за приглашение друга возможно потратить только тем пользователям, которые производили сделку хотя бы 1 раз и имеют баланс не менее 300.000 VND.
+
+                        Вознаграждение за приглашение одного друга начисляется единоразово.
+
+                        На что тратить бонусы?
+
+                        Poni, вы можете:
+
+                        ✔️ Обналичить накопленные бонусы, включив их в следующий обмен на сумму не менее 2.500.000 VND
+
+                        ✔️ Использовать бонусы при покупке товаров через наш сервис 
+
+                        ✔️ Использовать бонусы как скидку при оплате E-визы через нашего бота 
+
+
+                        👉🏼 Приглашайте друзей по ссылке: https://cp.puzzlebot.top/RhYx3GLE9PvLm4
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="container">
+        <div>
+            <form action="#">
+                <div class="pad_label">
+                    <label for="currencySell" class="font_size16">КАКУЮ ВАЛЮТУ ВЫ ХОТИТЕ ПРОДАТЬ?</label>
+                </div>
+                <div class="pad_select">
+                    <select id="currencySell" class="form">
+                        <option value="RUB">RUB (карта)</option>
+                        <option value="USD">USD (карта)</option>
+                        <option value="EUR">EUR (карта)</option>
+                    </select>
+                    <input type="text" name="currency_sell" placeholder="Введите сумму" class="input_curs centered-text_input">
+                </div>
+                <div class="pad_label">
+                    <label for="currencyBuy" class="font_size16">КАКУЮ ВАЛЮТУ ВЫ ХОТИТЕ КУПИТЬ?</label>
+                </div>
+                <div class="pad_select">
+                    <select id="currencyBuy" class="form">
+                        <option value="VND">VND (нал)</option>
+                        <option value="USD">USD (нал)</option>
+                        <option value="EUR">EUR (нал)</option>
+                    </select>
+                    <input type="text" name="currency_sell" placeholder="Введите сумму" class="input_curs centered-text_input">
+                </div>
+                <label for="amountBuy">ДАТА И ВРЕМЯ ДОСТАВКИ:</label>
+
+                <div id="datetime-picker">
+                    <input type="date" id="date" min="<?php echo date('2024'); ?>" class="input_curs">
+                <select id="time-select">
+                    <option value="">Выберите время</option>
+                    <option value="8:00-8:30">8:00 - 8:30</option>
+                    <option value="8:30-9:00">8:30 - 9:00</option>
+                    <option value="9:00-9:30">9:00 - 9:30</option>
+                    <option value="9:30-10:00">9:30 - 10:00</option>
+                    <option value="10:00-10:30">10:00 - 10:30</option>
+                    <option value="10:30-11:00">10:30 - 11:00</option>
+                    <option value="11:00-11:30">11:00 - 11:00</option>
+                    <option value="11:30-12:00">11:30 - 12:00</option>
+                    <option value="12:00-12:30">12:00 - 12:30</option>
+                    <option value="12:30-13:00">12:30 - 13:00</option>
+                    <option value="13:00-13:30">13:00 - 13:30</option>
+                    <option value="13:30-14:00">13:30 - 14:00</option>
+                    <option value="14:00-14:30">14:00 - 14:30</option>
+                    <option value="14:30-15:00">14:30 - 15:00</option>
+                    <option value="15:00-15:30">15:00 - 15:30</option>
+                    <option value="15:30-16:00">15:30 - 16:00</option>
+                    <option value="16:00-16:30">16:00 - 16:30</option>
+                    <option value="16:30-17:00">16:30 - 17:00</option>
+                    <option value="17:00-17:30">17:00 - 17:30</option>
+                    <option value="17:30-18:00">17:30 - 18:00</option>
+                    <option value="18:00-18:30">18:00 - 18:30</option>
+                    <option value="18:30-19:00">18:30 - 19:00</option>
+                    <option value="19:00-19:30">19:00 - 19:30</option>
+                    <option value="19:30-20:00">19:30 - 20:00</option>
+                    <option value="20:00-20:30">20:00 - 20:30</option>
+                    <option value="20:30-21:00">20:30 - 21:00</option>
+                    <option value="21:00-21:30">21:00 - 21:30</option>
+                    <option value="21:30-22:00">21:30 - 22:00</option>
+                </select>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="pad_label">
+        <label class="font_size16">АДРЕС ДОСТАВКИ:</label>
+    </div>
+    <input type="text" name="currency_sell" placeholder="Введите адрес, скопировав его с Google Maps" class="input_adress">
+
+
+    <div class="container">
+        <div class="pad_label">
+            <label>ИЛИ УКАЖИТЕ ТОЧКУ НА КАРТЕ:</label>
+        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124762.7129197648!2d109.1639290209959!3d12.259457803749836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3170677811cc886f%3A0x5c4bbc0aa81edcb9!2zTmhhIFRyYW5nLCBLaMOhbmggSMOyYSwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1717581983362!5m2!1sen!2s" width="350" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    </div>
+
+    <script>
+        const modalBtns = document.querySelectorAll('.openModalButton');
+        const modals = document.querySelectorAll('.modal');
+        const closeBtns = document.querySelectorAll('.modal-close, .close-button');
+        const dateInput = document.getElementById('date');
+        const timeSelect = document.getElementById('time-select');
+
+
+        modalBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const modalId = btn.dataset.modalId;
+            const modal = document.getElementById(modalId);
+            modal.classList.add('show');
+          });
+        });
+
+        closeBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const closestModal = btn.closest('.modal');
+            closestModal.classList.remove('show');
+          });
+        });
+
+        window.addEventListener('click', (event) => {
+          if (event.target.classList.contains('modal')) {
+            event.target.classList.remove('show');
+          }
+        });
+
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        dateInput.addEventListener('change', () => {
+        });
+
+        timeSelect.addEventListener('change', () => {
+            console.log('Выбрано: ' + dateInput.value + ' ' + timeSelect.value);
+        });
+    </script>
 </body>
 </html>
