@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exchange Nha Trang</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
     <header>
@@ -184,58 +185,28 @@
                 </div>
                 <div class="pad_select">
                     <select id="currencySell" class="form">
-                        <option value="RUB">RUB (карта)</option>
-                        <option value="USD">USD (карта)</option>
-                        <option value="EUR">EUR (карта)</option>
+                        <option value="RUB_card">RUB (карта)</option>
+                        <option value="USD_card">USD (карта)</option>
+                        <option value="EUR_card">EUR (карта)</option>
                     </select>
-                    <input type="text" name="currency_sell" placeholder="Введите сумму" class="input_curs centered-text_input">
+                    <input type="text" id="input1" name="currency_sell" placeholder="Введите сумму" class="input_curs centered-text_input">
                 </div>
                 <div class="pad_label">
                     <label for="currencyBuy" class="font_size16">КАКУЮ ВАЛЮТУ ВЫ ХОТИТЕ КУПИТЬ?</label>
                 </div>
                 <div class="pad_select">
                     <select id="currencyBuy" class="form">
-                        <option value="VND">VND (нал)</option>
-                        <option value="USD">USD (нал)</option>
-                        <option value="EUR">EUR (нал)</option>
+                        <option value="VND_cash">VND (нал)</option>
+                        <option value="USD_cash">USD (нал)</option>
+                        <option value="EUR_cash">EUR (нал)</option>
                     </select>
-                    <input type="text" name="currency_sell" placeholder="Введите сумму" class="input_curs centered-text_input">
+                    <input type="text" id="input2" name="currency_sell" placeholder="Введите сумму" class="input_curs centered-text_input">
                 </div>
                 <label for="amountBuy">ДАТА И ВРЕМЯ ДОСТАВКИ:</label>
 
                 <div id="datetime-picker">
-                    <input type="date" id="date" min="<?php echo date('2024'); ?>" class="input_curs">
-                <select id="time-select">
-                    <option value="">Выберите время</option>
-                    <option value="8:00-8:30">8:00 - 8:30</option>
-                    <option value="8:30-9:00">8:30 - 9:00</option>
-                    <option value="9:00-9:30">9:00 - 9:30</option>
-                    <option value="9:30-10:00">9:30 - 10:00</option>
-                    <option value="10:00-10:30">10:00 - 10:30</option>
-                    <option value="10:30-11:00">10:30 - 11:00</option>
-                    <option value="11:00-11:30">11:00 - 11:00</option>
-                    <option value="11:30-12:00">11:30 - 12:00</option>
-                    <option value="12:00-12:30">12:00 - 12:30</option>
-                    <option value="12:30-13:00">12:30 - 13:00</option>
-                    <option value="13:00-13:30">13:00 - 13:30</option>
-                    <option value="13:30-14:00">13:30 - 14:00</option>
-                    <option value="14:00-14:30">14:00 - 14:30</option>
-                    <option value="14:30-15:00">14:30 - 15:00</option>
-                    <option value="15:00-15:30">15:00 - 15:30</option>
-                    <option value="15:30-16:00">15:30 - 16:00</option>
-                    <option value="16:00-16:30">16:00 - 16:30</option>
-                    <option value="16:30-17:00">16:30 - 17:00</option>
-                    <option value="17:00-17:30">17:00 - 17:30</option>
-                    <option value="17:30-18:00">17:30 - 18:00</option>
-                    <option value="18:00-18:30">18:00 - 18:30</option>
-                    <option value="18:30-19:00">18:30 - 19:00</option>
-                    <option value="19:00-19:30">19:00 - 19:30</option>
-                    <option value="19:30-20:00">19:30 - 20:00</option>
-                    <option value="20:00-20:30">20:00 - 20:30</option>
-                    <option value="20:30-21:00">20:30 - 21:00</option>
-                    <option value="21:00-21:30">21:00 - 21:30</option>
-                    <option value="21:30-22:00">21:30 - 22:00</option>
-                </select>
+                    <input type="date" id="date" min="<?php echo date('Y'); ?>" placeholder="" class="input_curs">
+                <select id="time-select"></select>
                 </div>
             </form>
         </div>
@@ -253,15 +224,81 @@
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124762.7129197648!2d109.1639290209959!3d12.259457803749836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3170677811cc886f%3A0x5c4bbc0aa81edcb9!2zTmhhIFRyYW5nLCBLaMOhbmggSMOyYSwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1717581983362!5m2!1sen!2s" width="350" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <input type="text" name="currency_sell" placeholder="Коментарии к адресу" class="input_adress last_line">
-    
+    <button type="button" class="green-button last_line">ГОТОВО!</button>
     </div>
 
     <script>
         const modalBtns = document.querySelectorAll('.openModalButton');
         const modals = document.querySelectorAll('.modal');
         const closeBtns = document.querySelectorAll('.modal-close, .close-button');
-        const dateInput = document.getElementById('date');
+
+        document.getElementById('date').valueAsDate = new Date();
+
+        const currentTime = new Date();
+        const currentHour = currentTime.getHours();
+        const currentMinute = currentTime.getMinutes();
         const timeSelect = document.getElementById('time-select');
+
+        const currencySellAmountInput = document.getElementById('currencySellAmount');
+        const currencyBuyAmountInput = document.getElementById('currencyBuyAmount');
+
+        const currencySellSelect = document.getElementById('currencySell');
+        const currencyBuySelect = document.getElementById('currencyBuy');
+        const input1 = document.getElementById('input1');
+        const input2 = document.getElementById('input2');
+
+        function calculate() {
+          const currencySell = currencySellSelect.value;
+          const currencyBuy = currencyBuySelect.value;
+          const amountSell = parseFloat(input1.value);
+
+          const exchangeRate = 100;
+          let amountBuy = 0;
+
+          if (currencySell === 'RUB_card' && currencyBuy === 'VND_cash') {
+            amountBuy = amountSell * exchangeRate;
+          }
+
+          if (currencySell === 'USD_card' && currencyBuy === 'VND_cash') {
+            amountBuy = amountSell * exchangeRate;
+          }
+
+          if (currencySell === 'EUR_card' && currencyBuy === 'VND_cash') {
+            amountBuy = amountSell * exchangeRate;
+          }
+
+          input2.value = amountBuy.toFixed(2);
+        }
+
+        currencySellSelect.addEventListener('change', calculate);
+        currencyBuySelect.addEventListener('change', calculate);
+        input1.addEventListener('input', calculate);
+
+
+        function timeToMinutes(timeString) {
+          const [hours, minutes] = timeString.split(':').map(Number);
+          return hours * 60 + minutes;
+        }
+
+        function addTimeOption(startTime, endTime) {
+          const startTimeMinutes = timeToMinutes(startTime);
+          const currentTimeMinutes = currentHour * 60 + currentMinute;
+
+          if (startTimeMinutes > currentTimeMinutes) {
+            const option = document.createElement('option');
+            option.value = `${startTime}-${endTime}`;
+            option.textContent = `${startTime} - ${endTime}`;
+            timeSelect.appendChild(option);
+          }
+        }
+
+        for (let hours = 8; hours <= 22; hours++) {
+          for (let minutes = 0; minutes <= 30; minutes += 30) {
+            const startTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+            const endTime = `${(hours + 1) % 24}.${(minutes === 30) ? '00' : minutes.toString().padStart(2, '0')}`;
+            addTimeOption(startTime, endTime);
+          }
+        }
 
 
         modalBtns.forEach(btn => {
@@ -291,14 +328,10 @@
             }
         });
 
-        dateInput.addEventListener('change', () => {
-        });
-
         timeSelect.addEventListener('change', () => {
             console.log('Выбрано: ' + dateInput.value + ' ' + timeSelect.value);
         });
+
     </script>
 </body>
 </html>
-
-
