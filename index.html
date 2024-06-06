@@ -12,7 +12,7 @@
     const colorPicker = new iro.ColorPicker('#picker', {
         borderColor: "#ffffff",
         borderWidth: 1,
-        width: Math.round(document.documentElement.clientWidth / 2),
+        width: Math.round(document.documentElement.clientWidth),
     });
     colorPicker.on('color:change', function (color) {
         document.body.style.background = color.hexString;
