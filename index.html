@@ -6,6 +6,25 @@
     <title>Exchange Nha Trang</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+</head>
+<script type="text/javascript">
+    const colorPicker = new iro.ColorPicker('#picker', {
+        borderColor: "#ffffff",
+        borderWidth: 1,
+        width: Math.round(document.documentElement.clientWidth / 2),
+    });
+    colorPicker.on('color:change', function (color) {
+        document.body.style.background = color.hexString;
+    });
+
+    Telegram.WebApp.ready();
+    Telegram.WebApp.MainButton.setText('Choose Color').show().onClick(function () {
+        const data = JSON.stringify({hex: colorPicker.color.hexString, rgb: colorPicker.color.rgb});
+        Telegram.WebApp.sendData(data);
+        Telegram.WebApp.close();
+    });
+</script>
 </head>
 <body>
     <header>
@@ -19,7 +38,7 @@
         </div>
     </header>
 
-    <div class="container">
+    <div id="picker" class="container">
     <div class="container-pop-up">
         <button id="open_curs" class="openModalButton" data-modal-id="modal1">Наш курс обмена</button>
         <button id="open_jewelry_curs" class="openModalButton" data-modal-id="modal2">Курс в ювелирных салонах</button>
