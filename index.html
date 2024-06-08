@@ -175,43 +175,39 @@
         </div>
     </div>
 
+    <div class="line3">
+        <form action="#">
+            <div class="pad_label">
+                <label for="currencySell" class="font_size16">КАКУЮ ВАЛЮТУ ВЫ ХОТИТЕ ПРОДАТЬ?</label>
+            </div>
+            <div class="pad_select">
+                <select id="currencySell" class="form">
+                    <option value="RUB_card">RUB (карта)</option>
+                    <option value="USD_card">USD (карта)</option>
+                    <option value="EUR_card">EUR (карта)</option>
+                </select>
+                <input type="number" id="input1" name="currency_sell" placeholder="Введите сумму" class="input_curs centered-text_input">
+            </div>
+            <div class="pad_label">
+                <label for="currencyBuy" class="font_size16">КАКУЮ ВАЛЮТУ ВЫ ХОТИТЕ КУПИТЬ?</label>
+            </div>
+            <div class="pad_select">
+                <select id="currencyBuy" class="form">
+                    <option value="VND_cash">VND (нал)</option>
+                    <option value="USD_cash">USD (нал)</option>
+                    <option value="EUR_cash">EUR (нал)</option>
+                </select>
+                <input type="number" id="input2" name="currency_sell" placeholder="Введите сумму" class="input_curs centered-text_input">
+            </div>
+            <label for="amountBuy" class="pad_label">ДАТА И ВРЕМЯ ДОСТАВКИ:</label>
 
-
-
-
-    <div class="container">
-        <div>
-            <form action="#">
-                <div class="pad_label">
-                    <label for="currencySell" class="font_size16">КАКУЮ ВАЛЮТУ ВЫ ХОТИТЕ ПРОДАТЬ?</label>
-                </div>
-                <div class="pad_select">
-                    <select id="currencySell" class="form">
-                        <option value="RUB_card">RUB (карта)</option>
-                        <option value="USD_card">USD (карта)</option>
-                        <option value="EUR_card">EUR (карта)</option>
-                    </select>
-                    <input type="text" id="input1" name="currency_sell" placeholder="Введите сумму" class="input_curs centered-text_input">
-                </div>
-                <div class="pad_label">
-                    <label for="currencyBuy" class="font_size16">КАКУЮ ВАЛЮТУ ВЫ ХОТИТЕ КУПИТЬ?</label>
-                </div>
-                <div class="pad_select">
-                    <select id="currencyBuy" class="form">
-                        <option value="VND_cash">VND (нал)</option>
-                        <option value="USD_cash">USD (нал)</option>
-                        <option value="EUR_cash">EUR (нал)</option>
-                    </select>
-                    <input type="text" id="input2" name="currency_sell" placeholder="Введите сумму" class="input_curs centered-text_input">
-                </div>
-                <label for="amountBuy">ДАТА И ВРЕМЯ ДОСТАВКИ:</label>
-
-                <div id="datetime-picker">
-                    <input type="date" id="date" min="<?php echo date('Y'); ?>" placeholder="" class="input_curs">
-                <select id="time-select"></select>
-                </div>
-            </form>
-        </div>
+            <div id="datetime-picker">
+                <input type="date" id="date" min="<?php echo date('Y'); ?>" placeholder="" class="input_curs">
+            <select id="time-select">
+            <option>Выберите удобное время</option>
+            </select>
+            </div>
+        </form>
     </div>
     <div class="pad_label">
         <label class="font_size16">АДРЕС ДОСТАВКИ:</label>
