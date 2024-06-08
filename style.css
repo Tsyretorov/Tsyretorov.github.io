@@ -270,7 +270,7 @@ option {
 #datetime-picker input[type="date"] {
     flex: 1;
     padding: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #E6E6E6;
     border-radius: 4px;
     margin-right: 6%;
     margin-left: 1%;
@@ -278,7 +278,7 @@ option {
 
 #datetime-picker select {
     padding: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid #E6E6E6;
     border-radius: 4px;
     margin-right: 1%;
 }
