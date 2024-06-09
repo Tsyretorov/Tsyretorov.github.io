@@ -15,24 +15,19 @@ header {
 }
 
 .lines_up {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     flex-wrap: wrap;
-     align-content: space-between;
-}
-.line_up {
-    min-width: 20px;
-    min-height: 50px;
-    margin-right: 5 px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: space-between;
 }
 
-.button_line_up_name {
-    margin-top: 1px;
+.line_up {
+    margin: 5px;
     display: flex;
     padding: 10px 10px;
     border-radius: 15px;
-    background-color: #d3d3d3;
+    background-color: #E6E6E6;
     color: black;
     font-size: 12px;
     text-decoration: none;
@@ -40,17 +35,10 @@ header {
     cursor: pointer;
 }
 
-.button_line_up_cabinet {
-    margin-top: 1px;
-    display: flex;
-    padding: 10px 30px;
-    border-radius: 10px;
-    background-color: #4CAF50;
-    color: #fff;
-    font-size: 12px;
+.text_detorat {
+    font-size: 14px;
+    color: black;
     text-decoration: none;
-    border: none;
-    cursor: pointer;
 }
 
 #popupButton {
@@ -149,6 +137,7 @@ header {
     cursor: pointer;
     height: 30px;
     width: 30px;
+    font-size: 40px;
 }
 
 .modal-form {
@@ -294,6 +283,14 @@ option {
     width: 100%;
     margin-bottom: 10px;
 }
+
+.pad_label_for_line1 {
+    margin-bottom: 5px;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
 .pad_label {
     margin-bottom: 5px;
     margin-top: 30px;
