@@ -6,10 +6,6 @@
     <title>Exchange Nha Trang</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script type="text/javascript">
-        Telegram.WebApp.ready();
-        Telegram.WebApp.expand();
-    </script>
 </head>
 
 </head>
@@ -220,7 +216,7 @@
             </div>
             <label for="amountBuy" class="pad_label">ДАТА И ВРЕМЯ ДОСТАВКИ:</label>
 
-            <div id="pad_select">
+            <div id="datetime-picker">
                 <input type="date" id="date" min="<?php echo date('Y'); ?>" placeholder="" class="input_data">
             <select id="time-select">
             <option>Выберите удобное время</option>
@@ -234,18 +230,22 @@
     <input type="text" name="currency_sell" placeholder="Введите адрес, скопировав его с Google Maps" class="input_adress">
 
 
-    <div class="container">
+    <!-- <div class="container"> -->
 <!--         <div class="pad_label">
             <label>ИЛИ УКАЖИТЕ ТОЧКУ НА КАРТЕ:</label>
         </div>-->
-        <button id="open-maps-button" type="button" class="blue-button">Открыть Google Maps</button>
+<!--         <button id="open-maps-button"type="button" class="blue-button">
+                <a href="https://www.google.com/maps" class="text_google_maps">Открыть Google Maps</a>
+            </button> -->
         <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124762.7129197648!2d109.1639290209959!3d12.259457803749836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3170677811cc886f%3A0x5c4bbc0aa81edcb9!2zTmhhIFRyYW5nLCBLaMOhbmggSMOyYSwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1717581983362!5m2!1sen!2s" width="350" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
-    </div>
+    <!-- </div> -->
     <input type="text" name="currency_sell" placeholder="Коментарии к адресу" class="input_adress last_line">
     <button type="button" class="green-button last_line">ГОТОВО!</button>
     </div>
 
     <script>
+        Telegram.WebApp.ready();
+        Telegram.WebApp.expand();
         const modalBtns = document.querySelectorAll('.openModalButton');
         const modals = document.querySelectorAll('.modal');
         const closeBtns = document.querySelectorAll('.modal-close, .close-button');
@@ -256,6 +256,7 @@
         const currentHour = currentTime.getHours();
         const currentMinute = currentTime.getMinutes();
         const timeSelect = document.getElementById('time-select');
+        const dateInput = document.getElementById('date')
 
         const currencySellAmountInput = document.getElementById('currencySellAmount');
         const currencyBuyAmountInput = document.getElementById('currencyBuyAmount');
@@ -264,13 +265,6 @@
         const currencyBuySelect = document.getElementById('currencyBuy');
         const input1 = document.getElementById('input1');
         const input2 = document.getElementById('input2');
-
-        const openMapsButton = document.getElementById('open-maps-button');
-
-        openMapsButton.addEventListener('click', function() {
-          // Используйте URL-адрес Google Maps с вашими параметрами
-          window.location.href = "https://www.google.com/maps/@40.7128,-74.0060,12z?q=Ваше+местоположение";
-        });
 
 
         function calculate() {
@@ -320,11 +314,23 @@
         }
 
 
-        for (let hours = 8; hours <= 22; hours++) {
+        for (let hours = 8; hours < 22; hours++) {
           for (let minutes = 0; minutes <= 30; minutes += 30) {
             const startTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
-            const endTime = `${(hours + 1) % 24}.${(minutes === 30) ? '00' : minutes.toString().padStart(2, '0')}`;
-            addTimeOption(startTime, endTime);
+            let endTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+
+            // Вычитаем 30 минут из endTime
+            const endTimeMinutes = minutes - 30;
+
+            // Если минуты стали отрицательными, переходим к следующему часу
+            if (endTimeMinutes < 0) {
+              endTime = `${(hours).toString().padStart(2, '0')}:30`;
+            } else {
+              endTime = `${(hours+1).toString().padStart(2, '0')}:${endTimeMinutes.toString().padStart(2, '0')}`;
+            }
+
+            console.log(startTime, endTime);
+            addTimeOption(startTime, endTime); // Добавьте свою функцию addTimeOption
           }
         }
 
