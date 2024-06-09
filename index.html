@@ -11,13 +11,11 @@
 </head>
 <body>
     <header>
-        <div class="lines_up">
-            <div class="line_up">
-                <a href="https://t.me/llponill" class="button_line_up_name">Василий</a>
-            </div>
-            <div class="line_up special_padding">
-                <a href="https://poni03.github.io/cabinet" class="button_line_up_cabinet">Ваш кабинет</a>
-            </div>
+        <div class="line_up lines_up">
+            <!-- <div class="line_up"> -->
+                <a href="https://t.me/llponill" class="text_detorat">Василий</a>
+            <!-- </div> -->
+                <a href="https://poni03.github.io/cabinet" class="text_detorat">Ваш кабинет > </a>
         </div>
     </header>
 
@@ -30,12 +28,13 @@
     <div class="container-pop-up">
       <button id="open_evisa" class="openModalButton" data-modal-id="modal4">E-VISA и помощь с покупками</button>
       <button id="open_refferal" class="openModalButton" data-modal-id="modal5">Реферальная программа</button>
+      <button id="feedbacks" class="openModalButton" data-modal-id="modal6">Отзывы</button>
     </div>
 
     <div id="modal1" class="modal">
         <div class="modal-content">
+            <span class="close-button">&times;</span>
             <div class="modal-header">
-                <span class="close-button">&times;</span>
             </div>
             <div class="modal-form">
                 <form action="#">
@@ -63,8 +62,8 @@
 
     <div id="modal2" class="modal">
         <div class="modal-content">
+            <span class="close-button">&times;</span>
             <div class="modal-header">
-                <span class="close-button">&times;</span>
             </div>
             <div class="modal-form">
                 <form action="#">
@@ -91,8 +90,8 @@
 
     <div id="modal3" class="modal">
         <div class="modal-content">
+            <span class="close-button">&times;</span>
             <div class="modal-header">
-                <span class="close-button">&times;</span>
             </div>
             <div class="modal-form">
                 <form action="#">
@@ -117,8 +116,8 @@
 
     <div id="modal4" class="modal">
         <div class="modal-content">
+            <span class="close-button">&times;</span>
             <div class="modal-header">
-                <span class="close-button">&times;</span>
             </div>
             <div class="modal-form">
                 <form action="#">
@@ -140,8 +139,8 @@
 
     <div id="modal5" class="modal">
         <div class="modal-content">
+            <span class="close-button">&times;</span>
             <div class="modal-header">
-                <span class="close-button">&times;</span>
             </div>
             <div class="modal-form">
                 <form action="#">
@@ -175,9 +174,25 @@
         </div>
     </div>
 
+    <div id="modal6" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="modal-header">
+            </div>
+            <div class="modal-form">
+                <form action="#">
+                    <p>Чтобы посмотреть и оставить отзывы переходи по ссылке в наш телеграм канал</p>
+                    <button>
+                    <a href="https://t.me/llponill" class="text_detorat">наш телеграм канал</a>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="line3">
         <form action="#">
-            <div class="pad_label">
+            <div class="pad_label_for_line1">
                 <label for="currencySell" class="font_size16">КАКУЮ ВАЛЮТУ ВЫ ХОТИТЕ ПРОДАТЬ?</label>
             </div>
             <div class="pad_select">
