@@ -194,6 +194,12 @@ header {
     border: 1px solid #E6E6E6;
 }
 
+.input_data {
+    width: 30%;
+    height: 40px;
+    border: 1px solid #E6E6E6;
+}
+
 .input_adress {
     width: 90%;
     height: 40px;
@@ -261,15 +267,16 @@ option {
     padding: 5px;
     border: 1px solid #E6E6E6;
     border-radius: 4px;
-    margin-right: 6%;
-    margin-left: 1%;
+    margin-right: 15px;
+    margin-left: 5px;
 }
 
 #datetime-picker select {
     padding: 16px;
     border: 1px solid #E6E6E6;
     border-radius: 4px;
-    margin-right: 1%;
+    margin-right: 5px;
+    margin-left: 5px;
 }
 
 #time-select {
