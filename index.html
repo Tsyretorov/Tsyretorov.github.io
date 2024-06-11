@@ -54,7 +54,7 @@
                         *курс на суммы меньше 10.000₽ менее выгодный
                     </p>
                 </form>
-                <div class="item_pop-up_button">
+                <div id="picker" class="item_pop-up_button">
                     <button id="open_curs" class="openModalButton_in_pop_up" data-modal-id="modal1">Наш курс обмена</button>
                     <button id="open_how_change" class="openModalButton_in_pop_up" data-modal-id="modal3">Как происходит обмен?</button>
                     <button id="why_we" class="openModalButton_in_pop_up" data-modal-id="modal7">Почему с нами выгоднее?</button>
@@ -273,8 +273,18 @@
     </div>
 
     <script>
+
+
         Telegram.WebApp.ready();
         Telegram.WebApp.expand();
+        let tg = window.Telegram.WebApp;
+
+        tg.MainButton.text = "Changed Text"; //изменяем текст кнопки 
+        tg.MainButton.setText("Changed Text1"); //изменяем текст кнопки иначе
+        tg.MainButton.textColor = "#F55353"; //изменяем цвет текста кнопки
+        tg.MainButton.color = "#143F6B"; //изменяем цвет бэкграунда кнопки
+        tg.MainButton.setParams({"color": "#143F6B"}); //так изменяются все параметры 
+
         const modalBtns = document.querySelectorAll('.openModalButton');
         const modals = document.querySelectorAll('.modal');
         const closeBtns = document.querySelectorAll('.modal-close, .close-button');
@@ -286,67 +296,6 @@
         const currentMinute = currentTime.getMinutes();
         const timeSelect = document.getElementById('time-select');
         const dateInput = document.getElementById('date')
-
-        const currencySellAmountInput = document.getElementById('currencySellAmount');
-        const currencyBuyAmountInput = document.getElementById('currencyBuyAmount');
-
-        const currencySellSelect = document.getElementById('currencySell');
-        const currencyBuySelect = document.getElementById('currencyBuy');
-        const input1 = document.getElementById('input1');
-        const input2 = document.getElementById('input2');
-
-
-        // function calculate() {
-
-        //     const currencySell = currencySellSelect.value;
-        //     const currencyBuy = currencyBuySelect.value;
-        //     const amountSell = parseFloat(input1.value);
-
-        //     const exchangeRate = 100;
-        //     let amountBuy = 0;
-
-
-        //     if input1 < 0 {
-
-        //         if (currencySell === 'RUB_card' && currencyBuy === 'VND_cash') {
-        //             amountBuy = amountSell * exchangeRate;
-        //         }
-
-        //         if (currencySell === 'USD_card' && currencyBuy === 'VND_cash') {
-        //             amountBuy = amountSell * exchangeRate;
-        //         }
-
-        //         if (currencySell === 'EUR_card' && currencyBuy === 'VND_cash') {
-        //             amountBuy = amountSell * exchangeRate;
-        //         }
-
-        //         input2.value = amountBuy.toFixed(2);
-        //         }
-
-        //     if input2 < 0 {
-
-        //         if (currencySell === 'RUB_card' && currencyBuy === 'VND_cash') {
-        //             amountBuy = amountSell * exchangeRate;
-        //         }
-
-        //         if (currencySell === 'USD_card' && currencyBuy === 'VND_cash') {
-        //             amountBuy = amountSell * exchangeRate;
-        //         }
-
-        //         if (currencySell === 'EUR_card' && currencyBuy === 'VND_cash') {
-        //             amountBuy = amountSell * exchangeRate;
-        //         }
-
-        //         input1.value = amountBuy.toFixed(2);
-        //         }
-        //     }
-
-        // currencySellSelect.addEventListener('change', calculate);
-        // currencyBuySelect.addEventListener('change', calculate);
-        // input1.addEventListener('input1', calculate);
-        // input2.addEventListener('input2', calculate);
-
-
 
         function timeToMinutes(timeString) {
           const [hours, minutes] = timeString.split(':').map(Number);
