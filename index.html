@@ -309,15 +309,6 @@
 
         let previouslyClickedButton = null;
 
-        btn_telegram.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
-            if (tg.MainButton.isVisible){ //если кнопка показана 
-                tg.MainButton.hide() //скрываем кнопку 
-            }
-          else{ //иначе
-            tg.MainButton.show() //показываем 
-          }
-        });
-
         function timeToMinutes(timeString) {
           const [hours, minutes] = timeString.split(':').map(Number);
           return hours * 60 + minutes;
