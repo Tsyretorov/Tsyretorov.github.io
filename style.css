@@ -183,7 +183,7 @@ header {
 
 .form {
     width: 35%;
-    height: 40px;
+    height: 44px;
     margin-right: 15px;
     padding: 12px;
     border: 0px solid #E6E6E6;
@@ -265,7 +265,7 @@ option {
 }
 
 #datetime-picker {
-    display: flex;
+    display: inline-block;
     align-items: center;
     margin-bottom: 10px;
 }
@@ -276,19 +276,16 @@ option {
     border: 1px solid #E6E6E6;
     border-radius: 4px;
     margin-right: 15px;
-    margin-left: 5px;
 }
 
 #datetime-picker select {
     padding: 16px;
     border: 1px solid #E6E6E6;
     border-radius: 4px;
-    margin-right: 5px;
-    margin-left: 5px;
 }
 
 #time-select {
-    height: 20%;
+    height: 52px;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
