@@ -276,23 +276,24 @@
         <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124762.7129197648!2d109.1639290209959!3d12.259457803749836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3170677811cc886f%3A0x5c4bbc0aa81edcb9!2zTmhhIFRyYW5nLCBLaMOhbmggSMOyYSwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1717581983362!5m2!1sen!2s" width="350" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
     <!-- </div> -->
     <input type="text" name="currency_sell" placeholder="Коментарии к адресу" class="input_adress last_line">
-    <button type="button" class="green-button last_line">ГОТОВО!</button>
+    <!-- <button type="button" class="green-button last_line">ГОТОВО!</button> -->
     </div>
 
     <script>
 
-
+        // ###### INIT TELEGRAM ######
         Telegram.WebApp.ready();
         Telegram.WebApp.expand();
 
         Telegram.WebApp.MainButton.text = "Обменять"; //изменяем текст кнопки 
         Telegram.WebApp.MainButton.setText("Обменять"); //изменяем текст кнопки иначе
-        Telegram.WebApp.MainButton.textColor = "#FFFFFF"; //изменяем цвет текста кнопки
-        Telegram.WebApp.MainButton.color = "#4CAF50"; //изменяем цвет бэкграунда кнопки
+        Telegram.WebApp.MainButton.textColor = "#F55353"; //изменяем цвет текста кнопки
+        Telegram.WebApp.MainButton.color = "#143F6B"; //изменяем цвет бэкграунда кнопки
         Telegram.WebApp.MainButton.setParams({"color": "#143F6B"}); //так изменяются все параметры 
         Telegram.WebApp.MainButton.show()
         Telegram.WebApp.MainButton.enable()
 
+        // ###### INIT VARIABLES ######
         const colorChangeButtons = document.querySelectorAll('.color-change-button');
         const modalBtns = document.querySelectorAll('.openModalButton');
         const btn_popup = document.querySelectorAll('.color-change-button');
@@ -305,46 +306,80 @@
         const currentHour = currentTime.getHours();
         const currentMinute = currentTime.getMinutes();
         const timeSelect = document.getElementById('time-select');
-        const dateInput = document.getElementById('date')
+        const dateInput = document.getElementById('date');
 
         let previouslyClickedButton = null;
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = today.getMonth() + 1;
+        const day = today.getDate();
+
+        const formattedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+
+        // ##################### DATE and CHOOSE_TIME #####################
+        add_choosing_time(true)
+
+        dateInput.addEventListener('change', () => {
+            console.log('Выбрано: ' + dateInput.value + ' ' + timeSelect.value);
+            // dateInput.value = dateInput.value
+            if (formattedDate == dateInput.value) {
+                add_choosing_time(true)
+                console.log("Сработал тру")
+            } else {
+                console.log("Сработал фолс")
+                add_choosing_time(false)
+            }
+
+        });
 
         function timeToMinutes(timeString) {
           const [hours, minutes] = timeString.split(':').map(Number);
           return hours * 60 + minutes;
         }
 
-        function addTimeOption(startTime, endTime) {
-          const startTimeMinutes = timeToMinutes(startTime);
-          const currentTimeMinutes = currentHour * 60 + currentMinute;
-
-          if (startTimeMinutes > currentTimeMinutes) {
-            const option = document.createElement('option');
-            option.value = `${startTime}-${endTime}`;
-            option.textContent = `${startTime} - ${endTime}`;
-            timeSelect.appendChild(option);
-          }
-        }
-
-
-        for (let hours = 8; hours < 22; hours++) {
-          for (let minutes = 0; minutes <= 30; minutes += 30) {
-            const startTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
-            let endTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
-
-            const endTimeMinutes = minutes - 30;
-
-            if (endTimeMinutes < 0) {
-              endTime = `${(hours).toString().padStart(2, '0')}:30`;
+        function addTimeOption(flag, startTime, endTime) {
+            const startTimeMinutes = timeToMinutes(startTime);
+            const currentTimeMinutes = currentHour * 60 + currentMinute;
+            if (flag == true) {
+                if (startTimeMinutes > currentTimeMinutes) {
+                    const option = document.createElement('option');
+                    option.value = `${startTime}-${endTime}`;
+                    option.textContent = `${startTime} - ${endTime}`;
+                    timeSelect.appendChild(option);
+                }
             } else {
-              endTime = `${(hours+1).toString().padStart(2, '0')}:${endTimeMinutes.toString().padStart(2, '0')}`;
+                const option = document.createElement('option');
+                option.value = `${startTime}-${endTime}`;
+                option.textContent = `${startTime} - ${endTime}`;
+                timeSelect.appendChild(option);
             }
+        }
 
-            console.log(startTime, endTime);
-            addTimeOption(startTime, endTime);
+        function add_choosing_time(flag) {
+            timeSelect.innerHTML = '';
+            const option_choose_time = document.createElement('option');
+            option_choose_time.textContent = 'Выберите удобное время'
+            timeSelect.appendChild(option_choose_time);
+
+            for (let hours = 8; hours < 22; hours++) {
+                for (let minutes = 0; minutes <= 30; minutes += 30) {
+                    const startTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+                    let endTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+
+                    const endTimeMinutes = minutes - 30;
+
+                if (endTimeMinutes < 0) {
+                    endTime = `${(hours).toString().padStart(2, '0')}:30`;
+                } else {
+                    endTime = `${(hours+1).toString().padStart(2, '0')}:${endTimeMinutes.toString().padStart(2, '0')}`;
+                }
+            // console.log(startTime, endTime);
+            addTimeOption(flag, startTime, endTime);
+            }
           }
         }
 
+        // ##################### BUTTON #####################
         function changeButtonColor(button) {
           if (previouslyClickedButton) {
             previouslyClickedButton.style.backgroundColor = '';
@@ -369,9 +404,6 @@
 
             if (button) {
                 changeButtonColor(button)
-
-            } else {
-              console.error("Button not found for modal", modalId);
             }
 
             if (parentModal) {
@@ -379,7 +411,6 @@
             }
             modal.classList.add('show');
           });
-
         });
 
         closeBtns.forEach(btn => {
@@ -399,10 +430,6 @@
             if (event.key === 'Escape') {
                 closeModal();
             }
-        });
-
-        timeSelect.addEventListener('change', () => {
-            console.log('Выбрано: ' + dateInput.value + ' ' + timeSelect.value);
         });
 
     </script>
