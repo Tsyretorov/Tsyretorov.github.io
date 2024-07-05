@@ -299,6 +299,12 @@
         const btn_popup = document.querySelectorAll('.color-change-button');
         const modals = document.querySelectorAll('.modal');
         const closeBtns = document.querySelectorAll('.modal-close, .close-button');
+        const currencySellAmountInput = document.getElementById('currencySellAmount');
+        const currencyBuyAmountInput = document.getElementById('currencyBuyAmount');
+
+        const currencySellSelect = document.getElementById('currencySell');
+        const currencyBuySelect = document.getElementById('currencyBuy');
+        const input1 = document.getElementById('input1');
 
         document.getElementById('date').valueAsDate = new Date();
 
@@ -315,6 +321,58 @@
         const day = today.getDate();
 
         const formattedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+
+        // ##################### FORMULA FOR CALCULATING CURRENCY #####################
+        function calculate_sell() {
+            const currencySell = currencySellSelect.value;
+            const currencyBuy = currencyBuySelect.value;
+            const amountSell = parseFloat(input1.value);
+
+            const exchangeRate = 100;
+            let amountBuy = 0;
+
+            if (currencySell === 'RUB_card' && currencyBuy === 'VND_cash') {
+                amountBuy = amountSell * exchangeRate;
+            }
+
+            if (currencySell === 'USD_card' && currencyBuy === 'VND_cash') {
+                amountBuy = amountSell * exchangeRate;
+            }
+
+            if (currencySell === 'EUR_card' && currencyBuy === 'VND_cash') {
+                amountBuy = amountSell * exchangeRate;
+            }
+
+            input2.value = amountBuy.toFixed(2);
+            }
+
+        function calculate_buy() {
+            const currencySell = currencySellSelect.value;
+            const currencyBuy = currencyBuySelect.value;
+            const amountSell = parseFloat(input2.value);
+
+            const exchangeRate = 60;
+            let amountBuy = 0;
+
+            if (currencySell === 'RUB_card' && currencyBuy === 'VND_cash') {
+                amountBuy = amountSell * exchangeRate;
+            }
+
+            if (currencySell === 'USD_card' && currencyBuy === 'VND_cash') {
+                amountBuy = amountSell * exchangeRate;
+            }
+
+            if (currencySell === 'EUR_card' && currencyBuy === 'VND_cash') {
+                amountBuy = amountSell * exchangeRate;
+            }
+
+        input1.value = amountBuy.toFixed(2);
+            }
+
+        currencySellSelect.addEventListener('change', calculate_sell);
+        currencyBuySelect.addEventListener('change', calculate_buy);
+        input1.addEventListener('input', calculate_sell);
+        input2.addEventListener('input', calculate_buy);
 
         // ##################### DATE and CHOOSE_TIME #####################
         add_choosing_time(true)
