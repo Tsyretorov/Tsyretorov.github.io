@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список заказов</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar navbar-expand-lg navbar-dark bd-navbar sticky-top">
+      <nav class="navbar navbar-expand-lg fixed-top bg-light border-bottom border-secondary">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="advertisement-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Курсы расчеты
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="advertisement-dropdown">
+                      <li class="nav-item">
+                        <a class="nav-link " href="/channels">Курсы</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link " href="/r">Расчеты</a>
+                      </li>
+                  </ul>
+                </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="/orders">Orders</a>
+                  </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="courier-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Курьеры
+                  </a>
+                      <li class="nav-item">
+                        <a class="nav-link " href="/courier_shifts">Пользователи</a>
+                      </li>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/logout">Logout</a>
+                </li>
+                  
+      <form id="user_form_locale_4377" class="locale_select_form d-flex" action="/users/4377/update_locale" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="zeOJFOsjypkQPXrnuFTF1mmmJHuMezakAD6dDOzcH9wWWnpmBYHnsTeUDqqMskpkjft9qWl_KJQ189RYloDJwQ" autocomplete="off">
+        <select name="user[locale]" id="user_locale"><option value="ru">ru</option>
+    <option selected="selected" value="en">en</option></select>
+        <input value="/orders" autocomplete="off" type="hidden" name="user[redirect]" id="user_redirect">
+    </form>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <h1>Заказы</h1>
+    <div class="filters">
+        <label for="from">С:</label>
+        <input type="date" id="from" name="from">
+        <label for="to">По:</label>
+        <input type="date" id="to" name="to">
+        </div>
+    <div class="orders-count">
+        Количество заказов: <span id="order-count">0</span>
+    </div>
+    <table class="orders-table">
+        <thead>
+            <tr>
+                <th>Дата</th>
+                <th>#</th>
+                <th>Курьер</th>
+                <th>Клиент</th>
+                <th>Ресторан</th>
+                <th>Сумма</th>
+                <th>Оператор</th>
+            </tr>
+        </thead>
+        <tbody>
+            </tbody>
+    </table>
+    <script src="script.js"></script>
+</body>
+</html>
