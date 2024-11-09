@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Login - SB Admin</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="bg-primary">
+        <div id="layoutAuthentication">
+            <div id="layoutAuthentication_content">
+                <main>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-5">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
+                                                <label for="inputEmail">Email address</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputPassword" type="password" placeholder="Password" />
+                                                <label for="inputPassword">Password</label>
+                                            </div>
+                                            <div class="form-check mb-3">
+                                                <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
+                                                <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                                                <a class="small" href="password.html">Forgot Password?</a>
+                                                <a class="btn btn-primary" href="index.html">Login</a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="card-footer text-center py-3">
+                                        <div class="small"><a href="register.html">Need an account? Sign up!</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+            <div id="layoutAuthentication_footer">
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    </body>
+</html>
+
+window.addEventListener('DOMContentLoaded', event => {
+
+    // Toggle the side navigation
+    const sidebarToggle = document.body.querySelector('#sidebarToggle');
+    if (sidebarToggle) {
+        // Uncomment Below to persist sidebar toggle between refreshes
+        // if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
+        //     document.body.classList.toggle('sb-sidenav-toggled');
+        // }
+        sidebarToggle.addEventListener('click', event => {
+            event.preventDefault();
+            document.body.classList.toggle('sb-sidenav-toggled');
+            localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
+        });
+    }
+
+    $('.delete-btn').click(function() {
+        if (confirm('Вы действительно хотите удалить эту строку?')) {
+            const id_delete = $(this).data('id');
+            console.log(id_delete)
+            $.ajax({
+                url: "/delete/",
+                method: "POST",
+                data: {
+                    "id": id_delete
+                },
+
+            success: function(response) {
+                console.log("Данные успешно отправлены:", response);
+                alert('Данные удалены!');
+            },
+            error: function(error) {
+                if (error.status == 500) {
+                    alert("Я в вах, такого айди нету обратись разработчику, видимо утечька данных")
+
+                } else {
+                    // console.log(error.status)
+                    console.error("Ошибка при отправке данных:", error);
+                    alert('Произошла ошибка при удалении данных. Пожалуйста, попробуйте позже.');
+                        }
+                    }
+                });
+            }
+        });
+
+    $('.edit-btn').click(function() {
+        const button = $(this);
+        const row = button.closest('tr');
+        const cells = row[0].querySelectorAll('td');
+
+        // console.log(cells)
+
+        const newRowForm = document.createElement('tr');
+        newRowForm.innerHTML = `
+            <form id="new_form_data">
+                <tr>
+                    <td><input type="text" id="id" value="${cells[0].textContent}"></td>
+                    <td><input type="text" id="excange_name" value="${cells[1].textContent}"></td>
+                    <td><input type="text" id="currency_pair" value="${cells[2].textContent}"></td>
+                    <td><input type="text" id="owner_curs" value="${cells[3].textContent}"></td>
+                    <td>
+                        <button class="save-btn">Сохранить</button>
+                        <button class="cansel-btn">Отмена</button>
+                    </td>
+                <tr>
+            </form>
+        `;
+
+        row.replaceWith(newRowForm);
+
+    });
+
+    $('.add-btn').click(function() {
+        const tableBody = document.querySelector('#datatablesSimple tbody');
+
+        const newRowForm = document.createElement('tr');
+        newRowForm.innerHTML = `
+            <form id="new_form_data">
+                <tr>
+                  <td><input type="text" id="id" name="id"></td>
+                  <td><input type="text" id="excange_name" name="excange_name"></td>
+                  <td><input type="text" id="currency_pair" name="currency_pair"></td>
+                  <td><input type="text" id="owner_curs" name="owner_curs"></td>
+                  <td>
+                    <button class="save-btn" type="submit">Сохранить</button>
+                    <button class="cansel-btn" type="button">Отмена</button>
+                  </td>
+                </tr>
+            </form>
+          `;
+
+        tableBody.parentNode.insertBefore(newRowForm, tableBody);
+    });
+
+    $(document).ready(function() {
+        $(document).on('click', '.cansel-btn', function() { 
+            $(this).closest('tr').remove();
+        });
+
+        $(document).on('click', '.save-btn', function() {
+            const form = $(this).closest('form');
+            const formData = new FormData(form[0]);
+
+            $.ajax({
+                url: "/add",
+                method: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    console.log("Данные успешно отправлены:", response);
+                    alert('Данные сохранены!');
+                    form.closest('tr').replaceWith(`<tr><td>${response.id}</td><td>${response.excange_name}</td><td>${response.currency_pair}</td><td>${response.owner_curs}</td></tr>`);
+                },
+                error: function(error) {
+                    if (error.status == 400) {
+                        alert("У тебя ошибка при вводе данных")
+                        $(this).prop('enabled', false).text('Сохранить');
+
+                    } else {
+                        // console.log(error.status)
+                        console.error("Ошибка при отправке данных:", error);
+                        alert('Произошла ошибка при сохранении данных. Пожалуйста, попробуйте позже.');
+                    }
+                }
+            });
+        });
+    });
+});
+

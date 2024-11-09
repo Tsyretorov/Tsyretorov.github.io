@@ -1,0 +1,11 @@
+/* Здесь будут стили для оформления таблицы, фильтров и других элементов */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+/* ... другие стили ... */
