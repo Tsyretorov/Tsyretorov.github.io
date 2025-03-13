@@ -4,10 +4,84 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tsyretorov Roman</title>
-    <script type="module" crossorigin src="./assets/index-COKy3ogh.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CFlprWEH.css">
+    <script type="module" crossorigin src="./assets/index-D9jHcD3P.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Cs9BX_jK.css">
   </head>
   <body>
     <div id="app"></div>
   </body>
 </html>
+
+<template>
+  <div>
+    <div v-if="step === 1">
+      <h1>Выберите дату</h1>
+      <input type="date" v-model="selectedDate" />
+      <button @click="fetchUserData">Далее</button>
+    </div>
+
+    <div v-if="step === 2">
+      <h1>Ваши данные</h1>
+      <p>Дата: {{ selectedDate }}</p>
+      <p>Имя: {{ user.first_name }}</p>
+      <p>Фамилия: {{ user.last_name }}</p>
+      <p>Username: {{ user.username }}</p>
+      <button @click="step = 3">Поделиться</button>
+    </div>
+
+    <div v-if="step === 3">
+      <h1>Поделиться данными</h1>
+      <input v-model="recipientChatId" placeholder="Введите chat_id получателя" />
+      <button @click="shareData">Отправить</button>
+    </div>
+  </div>
+</template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      step: 1
+      selectedDate: null,
+      user: null
+      recipientChatId: null,
+    };
+  },
+  methods: {
+    async fetchUserData() {
+      try {
+        const response = await axios.post('http://localhost:8000/get-user-data');
+        if (response.data.success) {
+          this.user = response.data.user;
+          this.step = 2;
+        } else {
+          alert(response.data.message);
+        }
+      } catch (error) {
+        console.error('Ошибка при получении данных:', error);
+        alert('Ошибка при получении данных');
+      }
+    },
+
+    async shareData() {
+      try {
+        const message = `Дата: ${this.selectedDate}\nИмя: ${this.user.first_name}\nФамилия: ${this.user.last_name}\nUsername: ${this.user.username}`;
+        const response = await axios.post('http://localhost:8000/share-data', {
+          chat_id: this.recipientChatId,
+          message: message,
+        });
+        if (response.data.success) {
+          alert('Данные успешно отправлены!');
+        } else {
+          alert('Ошибка при отправке данных');
+        }
+      } catch (error) {
+        console.error('Ошибка при отправке данных:', error);
+        alert('Ошибка при отправке данных');
+      }
+    },
+  },
+};
+</script>
