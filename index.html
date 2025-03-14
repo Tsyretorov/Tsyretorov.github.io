@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tsyretorov Roman</title>
-    <script type="module" crossorigin src="./assets/index-D9jHcD3P.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-Cs9BX_jK.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script type="module" crossorigin src="./assets/index-DUx_JY46.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-B4P3-9dN.css">
   </head>
   <body>
     <div id="app"></div>
@@ -30,9 +31,7 @@
     </div>
 
     <div v-if="step === 3">
-      <h1>Поделиться данными</h1>
-      <input v-model="recipientChatId" placeholder="Введите chat_id получателя" />
-      <button @click="shareData">Отправить</button>
+      <button @click="generateLink">Поделиться</button>
     </div>
   </div>
 </template>
