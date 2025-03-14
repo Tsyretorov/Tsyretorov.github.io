@@ -38,50 +38,39 @@
 </template>
 
 <script>
-import axios from 'axios';
-
 export default {
   data() {
     return {
-      step: 1
-      selectedDate: null,
-      user: null
-      recipientChatId: null,
+      user: {
+        firstName: '',
+        lastName: '',
+        username: ''
+      }
     };
   },
-  methods: {
-    async fetchUserData() {
-      try {
-        const response = await axios.post('http://localhost:8000/get-user-data');
-        if (response.data.success) {
-          this.user = response.data.user;
-          this.step = 2;
-        } else {
-          alert(response.data.message);
-        }
-      } catch (error) {
-        console.error('Ошибка при получении данных:', error);
-        alert('Ошибка при получении данных');
-      }
-    },
-
-    async shareData() {
-      try {
-        const message = `Дата: ${this.selectedDate}\nИмя: ${this.user.first_name}\nФамилия: ${this.user.last_name}\nUsername: ${this.user.username}`;
-        const response = await axios.post('http://localhost:8000/share-data', {
-          chat_id: this.recipientChatId,
-          message: message,
-        });
-        if (response.data.success) {
-          alert('Данные успешно отправлены!');
-        } else {
-          alert('Ошибка при отправке данных');
-        }
-      } catch (error) {
-        console.error('Ошибка при отправке данных:', error);
-        alert('Ошибка при отправке данных');
-      }
-    },
+  mounted() {
+    const tg = window.Telegram.WebApp;
+    if (tg.initDataUnsafe.user) {
+      this.user.firstName = tg.initDataUnsafe.user.first_name || 'Не указано';
+      this.user.lastName = tg.initDataUnsafe.user.last_name || 'Не указано';
+      this.user.username = tg.initDataUnsafe.user.username || 'Не указано';
+    }
   },
+  methods: {
+    generateLink() {
+      const baseUrl = 'https://tsyretorov.github.io/';
+      const queryParams = new URLSearchParams({
+        firstName: this.user.firstName,
+        lastName: this.user.lastName,
+        username: this.user.username
+      }).toString();
+
+      const shareLink = `${baseUrl}?${queryParams}`;
+
+      navigator.clipboard.writeText(shareLink).then(() => {
+        alert('Ссылка скопирована в буфер обмена!');
+      });
+    }
+  }
 };
 </script>
